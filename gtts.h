@@ -7,41 +7,54 @@
 #include <cstdlib>
 #include <iterator>
 #include <sstream>
+#include <map>
 
 namespace gtts {
+    typedef std::string string;
 
-class GoogleTTS {
-    private:
+    // TODO finish list
+    const std::map<string, string> lang_codes {
+        // {"af", "Afrikaans"},
+        {"de", "German"},
+        {"en", "English"},
+        {"fr", "French"},
+        {"es", "Spanish"},
+        {"it", "Italian"}
+    };
 
-    // std::string _bla = "curl 'https://translate.google.com/translate_tts?ie=UTF-8&q=Hello%20Everyone&tl=en&client=tw-ob' -H 'Referer: http://translate.google.com/' -H 'User-Agent: stagefright/1.2 (Linux;Android 5.0)' > google_tts.mp3";
-    std::string _curl = "curl 'https://translate.google.com/translate_tts?ie=UTF-8&q=";
-    std::string _lang = "&tl=";
-    std::string _text = "";
-    std::string _client = "&client=tw-ob' ";
-    std::string _out = "> /tmp/gtts.mp3";
-    std::string _outv = "> /tmp/gtts_"; 
-    std::string _ref = " 'Referer: http://translate.google.com/' ";
-    std::string _agent = " 'User-Agent: stagefright/1.2 (Linux;Android 9.0)' ";
-    std::string _mpv = "mpv";
-    std::string _speed = " --speed=";
-    std::string _play = " /tmp/gtts.mp3 1>/dev/null";
-    std::string _cat = "cat /tmp/gtts_*.mp3 > /tmp/gtts.mp3";
-    std::string _rm = "rm /tmp/gtts_*.mp3";
+    class GoogleTTS {
+        private:
 
-    std::vector<std::string> _cmds;
+        string _curl =
+            "curl 'https://translate.google.com/translate_tts?ie=UTF-8&q=";
+        string _lang = "&tl=";
+        string _text = "";
+        string _client = "&client=tw-ob' ";
+        string _out = "> /tmp/gtts.mp3";
+        string _outv = "> /tmp/gtts_"; 
+        string _ref = " 'Referer: http://translate.google.com/' ";
+        string _agent = " 'User-Agent: stagefright/1.2 (Linux;Android 9.0)' ";
+        string _mpv = "mpv";
+        string _speed = " --speed=";
+        string _play = " /tmp/gtts.mp3 1>/dev/null";
+        string _cat = "cat /tmp/gtts_*.mp3 > /tmp/gtts.mp3";
+        string _rm = "rm /tmp/gtts_*.mp3";
 
-    void parse(std::vector<std::string>& vec);
-    void parse();
-    std::vector<std::string> split(std::string& msg);
-    void replace(std::string& text);
-    void unite();
+        std::vector<string> _cmds;
 
-    public:
-    GoogleTTS(std::string msg, std::string lang, std::string speed = "1.0"); 
-    void execute();
-    static void help();
-    static void version();
-};
+        void parse(std::vector<string>& vec);
+        void parse();
+        std::vector<string> split(string& msg);
+        void replace(string& text);
+        void unite();
+
+        public:
+        GoogleTTS(string msg, string lang, string speed = "1.0"); 
+        void execute();
+        static void help();
+        static void version();
+        static void languages();
+    };
 
 }
 

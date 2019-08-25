@@ -11,12 +11,14 @@ Following console programs must be installed:
 * cat
 * mpv
 
-## Installation
+## Install
 Manually:
-* `make`
-* `sudo mv ./bin/gtts /usr/bin/`
+`./install.sh`
 
 AUR package is also planned
+
+## Uninstall
+`./install.sh -u` or `./install --uninstall`
 
 ## License
 MIT
