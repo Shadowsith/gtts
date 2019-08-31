@@ -85,7 +85,6 @@ namespace gtts {
 
     class GoogleTTS {
         private:
-        string _version = ""
 
         string _curl =
             "curl 'https://translate.google.com/translate_tts?ie=UTF-8&q=";
