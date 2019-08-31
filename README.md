@@ -24,6 +24,7 @@ AUR package is also planned
 
 ## Languages
 Table of all supported languages with codes:
+
 | Code | Language |
 |------|----------|
 | af | Afrikaans |
