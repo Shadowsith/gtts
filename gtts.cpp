@@ -97,13 +97,15 @@ void GoogleTTS::help() {
 
 void GoogleTTS::languages() {
     std::cout << "Supported languages:" << std::endl;
+    int counter = 0;
     for(std::pair<string, string> l : lang_codes) {
-       std::cout << "\t" << l.first  << " : "<< l.second << std::endl; 
+        std::cout << l.first  << "\t:\t"<< l.second << std::endl;
     }    
+    std::cout << std::endl;
 }
 
 void GoogleTTS::version() {
-    std::cout << "gtts version: 0.2" << std::endl;
+    std::cout << "gtts version: 0.3" << std::endl;
 }
 
 }
